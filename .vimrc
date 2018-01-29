@@ -26,6 +26,24 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+
+" Leader
+let mapleader = " "
+
+set backspace=2   " Backspace deletes like most programs in insert mode
+set nobackup
+set nowritebackup
+set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+set history=50
+set ruler         " show the cursor position all the time
+set showcmd       " display incomplete commands
+set incsearch     " do incremental searching
+set laststatus=2  " Always display the status line
+set autowrite     " Automatically :write before running commands
+
+" Use one space, not two, after punctuation.
+set nojoinspaces
+
 " setting for colour scheme
 colorscheme deus
 
@@ -69,12 +87,6 @@ set showmatch
 
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
-
-" alwats display the status line
-set laststatus=2
-
-" display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
 
 " Numbers
 set number
