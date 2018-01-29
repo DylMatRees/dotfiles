@@ -10,6 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ajmwagar/vim-deus' " colour scheme
+Plugin 'vim-airline/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -46,6 +47,10 @@ set nojoinspaces
 
 " setting for colour scheme
 colorscheme deus
+
+" Make it obvious where 80 characters is
+set textwidth=80
+set colorcolumn=+1
 
 " remap switching between windows
 nnoremap <C-J> <C-W><C-J>
