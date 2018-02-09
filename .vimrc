@@ -54,6 +54,7 @@ set guifont=Source\ Code\ Pro\ for\ Powerline "make sure to escape the spaces in
 let g:airline_powerline_fonts = 1
 
 " setting for colour scheme
+set t_Co=256
 colorscheme deus
 
 " Make it obvious where 80 characters is
