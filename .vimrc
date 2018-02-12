@@ -50,7 +50,7 @@ set nojoinspaces
 
 " enable powerline fonts
 set encoding=utf-8
-set guifont=Source\ Code\ Pro\ for\ Powerline "make sure to escape the spaces in the name properly
+set guifont=Meslo\ LG\ L\ DZ\ for\ Powerline
 let g:airline_powerline_fonts = 1
 
 " setting for colour scheme
