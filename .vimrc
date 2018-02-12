@@ -78,6 +78,9 @@ map <C-n> :NERDTreeToggle<CR>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
+" enable auto-completion for python
+let g:ycm_python_binary_path = 'python'
+
 " enable syntax highlighting
 syntax enable
 
