@@ -77,6 +77,7 @@ map <C-n> :NERDTreeToggle<CR>
 " change the default mapping and the default command to invoke CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_max_files = 0
 
 " enable auto-completion for python
 let g:ycm_python_binary_path = 'python'
