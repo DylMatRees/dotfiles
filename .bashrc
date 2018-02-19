@@ -10,6 +10,8 @@ if [ -f ~/.bash_aliases ]; then
         . ~/.bash_aliases
 fi
 
+export EDITOR="vim"
+
 export ANDROID_HOME=$HOME/android/android-sdk-linux/platform-tools
 export PATH=$PATH:$ANDROID_HOME
 
