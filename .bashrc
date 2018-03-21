@@ -17,4 +17,10 @@ export PATH=$PATH:$ANDROID_HOME
 
 # virtualenvwrapper settings
 export WORKON_HOME=~/.envs
-. /home/tom/.local/bin/virtualenvwrapper.sh
+. /bin/virtualenvwrapper.sh
+
+# correct ssh within tmux
+function fixssh() {
+    eval $(tmux show-env    \
+        |sed -n 's/^\(SSH_[^=]*\)=\(.*\)/export \1="\2"/p')
+}
