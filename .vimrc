@@ -12,8 +12,12 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ajmwagar/vim-deus' " colour scheme
 Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive'
+Plugin 'shumphrey/fugitive-gitlab.vim'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'Konfekt/FastFold'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'davidhalter/jedi-vim' " code completion for python
+Plugin 'Rip-Rip/clang_complete' " code completion for c
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -31,22 +35,28 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 
-" Leader
+" Remap leader to space key
 let mapleader = " "
 
-set backspace=2   " Backspace deletes like most programs in insert mode
+set backspace=2     " Backspace deletes like most programs in insert mode
 set nobackup
 set nowritebackup
-set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+set noswapfile      " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
 set history=50
-set ruler         " show the cursor position all the time
-set showcmd       " display incomplete commands
-set incsearch     " do incremental searching
-set laststatus=2  " Always display the status line
-set autowrite     " Automatically :write before running commands
-
-" Use one space, not two, after punctuation.
-set nojoinspaces
+set ruler           " show the cursor position all the time
+set showcmd         " display incomplete commands
+set incsearch       " do incremental searching
+set laststatus=2    " Always display the status line
+set autowrite       " Automatically :write before running commands
+set ts=4            " set tabs to have 4 spaces
+set autoindent      " indent when moving to the next line while writing code
+set expandtab       " expand tabs into spaces
+set shiftwidth=4    " when using the >> or << commands, shift lines by 4 spaces
+set showmatch       " show the matching part of the pair for [] {} and ()
+set number          " show line numbers
+set numberwidth=5   " set line number width to 5
+set relativenumber  " show line numbers
+set nojoinspaces    " Use one space, not two, after punctuation.
 
 " enable powerline fonts
 set encoding=utf-8
@@ -54,12 +64,9 @@ set guifont=Meslo\ LG\ L\ DZ\ for\ Powerline
 let g:airline_powerline_fonts = 1
 
 " setting for colour scheme
+syntax enable
 set t_Co=256
 colorscheme deus
-
-" Make it obvious where 80 characters is
-set textwidth=80
-set colorcolumn=+1
 
 " remap switching between windows
 nnoremap <C-J> <C-W><C-J>
@@ -79,42 +86,16 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_max_files = 0
 
-" enable auto-completion for python
-let g:ycm_python_binary_path = 'python'
-
-" enable syntax highlighting
-syntax enable
-
-" show line numbers
-set number
-
-" set tabs to have 4 spaces
-set ts=4
-
-" indent when moving to the next line while writing code
-set autoindent
-
-" expand tabs into spaces
-set expandtab
-
-" when using the >> or << commands, shift lines by 4 spaces
-set shiftwidth=4
-
-" show the matching part of the pair for [] {} and ()
-set showmatch
-
-" enable all Python syntax highlighting features
-let python_highlight_all = 1
-
-" Numbers
-set number
-set numberwidth=5
-
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-" autoclose YouCompleteMe preview window
-let g:ycm_autoclose_preview_window_after_insertion = 1
+" set tmux windows to filename of windows in vim
+autocmd BufEnter * call system("tmux rename-window " . expand("%:t"))
+autocmd VimLeave * call system("tmux rename-window bash")
+autocmd BufEnter * let &titlestring = ' ' . expand("%:t")
+set title
+
+" Support for :Gbrowse using GitLab
